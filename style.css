@@ -1,0 +1,475 @@
+:root {
+  --bg: #f3f7fb;
+  --card: rgba(255, 255, 255, 0.9);
+  --primary: #1f6feb;
+  --secondary: #0b132b;
+  --muted: #5f6c7b;
+  --line: #dfe7f1;
+  --gold: #ffe9a8;
+  --shadow: 0 20px 45px rgba(22, 35, 66, 0.12);
+}
+
+.hidden {
+  display: none !important;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(180deg, #eef5ff 0%, #f7f9fc 100%);
+  color: var(--secondary);
+  line-height: 1.9;
+  margin: 0;
+  padding: 28px 18px 60px;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+#toggleNotesBtn,
+#chatToggleBtn,
+#closeChatBtn,
+#sendChatBtn,
+#saveNotesBtn,
+#downloadNotesBtn,
+#savePopNote,
+#closePopNote {
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  box-shadow: 0 8px 18px rgba(31, 111, 235, 0.18);
+}
+
+#toggleNotesBtn,
+#chatToggleBtn,
+#sendChatBtn,
+#saveNotesBtn {
+  background: linear-gradient(135deg, var(--primary), #2a91ff);
+  color: #fff;
+}
+
+#toggleNotesBtn:hover,
+#chatToggleBtn:hover,
+#sendChatBtn:hover,
+#saveNotesBtn:hover,
+#downloadNotesBtn:hover,
+#closeChatBtn:hover,
+#savePopNote:hover,
+#closePopNote:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.04);
+}
+
+#closeChatBtn {
+  background: #eef4ff;
+  color: var(--secondary);
+  padding: 8px 10px;
+  box-shadow: none;
+}
+
+.toolbar {
+  max-width: 980px;
+  margin: 12px auto 22px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 10px;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(203, 219, 238, 0.9);
+  border-radius: 16px;
+  padding: 12px 14px;
+  box-shadow: 0 10px 25px rgba(37, 57, 86, 0.08);
+}
+
+#searchInput,
+#chatInput,
+#notesInput,
+#popNoteTextarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  padding: 12px 14px;
+  color: var(--secondary);
+  outline: none;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+#searchInput:focus,
+#chatInput:focus,
+#notesInput:focus,
+#popNoteTextarea:focus {
+  border-color: rgba(31, 111, 235, 0.6);
+  box-shadow: 0 0 0 4px rgba(31, 111, 235, 0.08);
+}
+
+#searchInput {
+  flex: 1;
+}
+
+.chat-box {
+  max-width: 980px;
+  margin: 0 auto 22px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #eef5ff, #f4f8ff);
+  border-bottom: 1px solid var(--line);
+  font-weight: 700;
+}
+
+.chat-messages {
+  max-height: 280px;
+  overflow-y: auto;
+  padding: 18px 16px;
+  background: linear-gradient(180deg, #fbfdff, #f6f9ff);
+}
+
+.message {
+  max-width: 76%;
+  padding: 11px 14px;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  line-height: 1.7;
+  word-break: break-word;
+}
+
+.message.user {
+margin-inline-start: auto;
+  background: linear-gradient(135deg, #dff0ff, #cfe8ff);
+  color: #10233d;
+}
+
+.message.bot {
+ margin-inline-end: auto;
+  background: #f3f6f9;
+  border: 1px solid #edf1f6;
+}
+
+.chat-input-row {
+  display: flex;
+  gap: 10px;
+  padding: 12px 16px 16px;
+}
+
+#chatInput {
+  flex: 1;
+}
+
+.container {
+  max-width: 980px;
+  margin: 0 auto;
+  background: var(--card);
+  border: 1px solid rgba(210, 224, 238, 0.8);
+  border-radius: 22px;
+  padding: 36px 34px 28px;
+  box-shadow: var(--shadow);
+}
+
+h1 {
+  color: var(--secondary);
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  margin: 0 0 18px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+h2 {
+  color: #24354d;
+  font-size: clamp(1.45rem, 2vw, 2rem);
+  margin-top: 52px;
+  border-bottom: 2px solid rgba(31, 111, 235, 0.4);
+  padding-bottom: 10px;
+  line-height: 1.5;
+}
+
+h3 {
+  color: #115a4c;
+  font-size: clamp(1.1rem, 1.5vw, 1.45rem);
+  margin-top: 34px;
+  line-height: 1.5;
+}
+
+p {
+  font-size: 1.05rem;
+  margin-bottom: 18px;
+  text-align: justify;
+  color: #1d2b39;
+}
+
+ul {
+  font-size: 1.02rem;
+  margin-bottom: 22px;
+  padding-inline-end: 20px;
+  color: #233142;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+.intro {
+  background: linear-gradient(135deg, #edf7ff, #f3f8ff);
+  padding: 24px 22px;
+  border-radius: 16px;
+  border-right: 5px solid var(--primary);
+  margin: 26px 0 34px;
+  box-shadow: inset 0 0 0 1px rgba(31, 111, 235, 0.05);
+}
+
+.highlight {
+  background: var(--gold);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+footer {
+  margin-top: 60px;
+  text-align: start;
+  font-size: 0.95rem;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+}
+
+.notes-widget {
+  max-width: 980px;
+  margin: 18px auto 0;
+}
+
+.notes-box {
+  width: 280px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 18px;
+  margin-top: 10px;
+}
+
+#notesInput {
+  min-height: 140px;
+  resize: vertical;
+  margin-top: 10px;
+}
+
+.notes-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+#downloadNotesBtn {
+  background: linear-gradient(135deg, #5b67f8, #4157d6);
+  color: #fff;
+}
+
+#highlightTooltip {
+  position: absolute;
+  display: none;
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  color: #fff;
+  border: none;
+  padding: 7px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.25);
+  z-index: 1000;
+}
+
+mark.highlight {
+  background-color: #fef3a6;
+  color: #1e293b;
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+#noteIconBtn {
+  position: absolute;
+  display: none;
+  background: #0284c7;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+}
+
+.pop-note-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #1e293b;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+  width: 90%;
+  max-width: 400px;
+}
+
+#popNoteTextarea {
+  width: 100%;
+  height: 100px;
+  background: #0f172a;
+  color: #fff;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  padding: 8px;
+  margin: 10px 0;
+  resize: vertical;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-actions button {
+  padding: 6px 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#savePopNote {
+  background: #10b981;
+  color: white;
+}
+
+#closePopNote {
+  background: #64748b;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 20px 12px 40px;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #chatToggleBtn,
+  #toggleNotesBtn,
+  #sendChatBtn,
+  #saveNotesBtn,
+  #downloadNotesBtn,
+  #savePopNote,
+  #closePopNote {
+    width: 100%;
+  }
+
+  .chat-input-row,
+  .notes-actions,
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .container {
+    padding: 24px 18px;
+  }
+
+  .message {
+    max-width: 90%;
+  }
+}
+html.translated-ltr body {
+  direction: ltr;
+  text-align: left;
+}
+body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        h2 {
+            color: #1a365d;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        p {
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+        ul {
+            padding-right: 25px;
+            margin-bottom: 25px;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        ol.references {
+            padding-right: 20px;
+            direction: ltr;
+            text-align: left;
+        }
+        ol.references li {
+            margin-bottom: 12px;
+            word-break: break-all;
+            font-family: Arial, sans-serif;
+        }
+        a {
+            color: #2b6cb0;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        a:hover {
+            color: #2c5282;
+            text-decoration: underline;
+        }
+        .section-divider {
+            height: 1px;
+            background-color: #e2e8f0;
+            margin: 40px 0;
+        }
